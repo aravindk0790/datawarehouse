@@ -57,6 +57,7 @@ resource "aws_instance" "ec2" {
     instance_type           = var.instance_type
     key_name                = var.key_name
     subnet_id               = var.subnet_id
+    associate_public_ip_address = var.associate_public_ip_address
     vpc_security_group_ids  = [aws_security_group.app_sg.id]
     tags                    = var.tags
 }   
@@ -80,7 +81,7 @@ resource "aws_rds_cluster" "dbcluster" {
 
 resource "aws_db_subnet_group" "rds_subnet_group" {
     name        = "aurora_serverless"
-    subnet_ids  = ["var.subnets"]
+    subnet_ids  = var.subnets
 }
 
 resource "aws_db_parameter_group" "aurorapg10" {

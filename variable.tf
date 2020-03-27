@@ -26,6 +26,11 @@ variable "subnet_id" {
   description = "subnet used to launch BI server" 
 }
 
+variable "associate_public_ip_address" {
+  description = "If true, the EC2 instance will have associated public IP address"
+  type        = bool
+}
+
 variable "tags" {
   type        = map(string)
   default     = {}
