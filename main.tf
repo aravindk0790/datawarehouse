@@ -73,6 +73,8 @@ resource "aws_rds_cluster" "dbcluster" {
     db_subnet_group_name      = aws_db_subnet_group.rds_subnet_group.id
     vpc_security_group_ids    = [aws_security_group.db_sg.id]
     db_cluster_parameter_group_name = aws_rds_cluster_parameter_group.aurorapg10.id
+    skip_final_snapshot       = var.skip_final_snapshot
+    final_snapshot_identifier = var.final_snapshot_identifier
     scaling_configuration {
         max_capacity             = var.max_capacity
         min_capacity             = var.min_capacity

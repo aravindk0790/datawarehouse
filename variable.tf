@@ -27,8 +27,8 @@ variable "subnet_id" {
 }
 
 variable "associate_public_ip_address" {
-  description = "If true, the EC2 instance will have associated public IP address"
   type        = bool
+  description = "If true, the EC2 instance will have associated public IP address"
 }
 
 variable "tags" {
@@ -96,3 +96,12 @@ variable "min_capacity" {
   description = "Minimum compute unit of Aurora serverless"
 }
 
+variable "skip_final_snapshot" {
+  type        = bool
+  description = "If true, skipping the final snapshot"
+}
+
+variable "final_snapshot_identifier"{
+  type        = string
+  description = "name of the final snapshot"
+}
